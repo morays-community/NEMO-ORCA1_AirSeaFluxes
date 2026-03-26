@@ -41,7 +41,7 @@ Purpose of this experiment is to compute the air-sea heat and momentum fluxes of
 ### Post-Process
 
 
-- No Post-Process libraries
+- No Post-Process libraries : Python scripts `compute_monthly_mean.py` and `compute_yearly_mean.py`
 
 - Plotting : Python scripts `plots_res.py` and `plots_diff.py` in `POSTPROCESS`
 
