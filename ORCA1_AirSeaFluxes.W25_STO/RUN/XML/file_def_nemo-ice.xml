@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+    <!-- $id$ -->
+    
+ <!--
+============================================================================================================
+=                                           output files definition                                        =
+=                                            Define your own files for lim3                                =
+=                                         put the variables you want...                                    =
+============================================================================================================
+  -->
+    
+    <file_definition type="one_file" name="@expname@_@freq@_@startdate@_@enddate@" sync_freq="10d" min_digits="4">
+
+      <!-- 1 time step files -->
+      <file_group id="1ts" output_freq="1ts"  output_level="10" enabled=".TRUE."/>
+      
+      <!-- sections, zooms and moorings -->
+
+      <!-- 2-hourly files -->
+      <!--
+      <file_group id="2h" output_freq="2h"  output_level="10" enabled=".TRUE.">
+	<file id="file200" name_suffix="_storfice" >
+          <field_group group_ref="ICE_storf" />
+        </file>
+      </file_group>
+      -->
+
+      <!-- global files -->    
+
+
+      <!-- 5-daily files -->
+      <!--
+      <file_group id="5d" output_freq="5d"  output_level="10" enabled=".TRUE.">
+	<file id="file33" name_suffix="_icemod" description="ice variables" enabled=".true." >
+          <field_group group_ref="ICE"/>
+	  <field_group group_ref="ICE_cat"/>
+        </file>	
+      </file_group>
+      -->
+
+      <!-- 1-monthly files -->
+      <!--
+      <file_group id="1m" output_freq="1mo" output_level="10" enabled=".TRUE.">
+	<file id="file34" name_suffix="_icemod" description="ice variables" enabled=".true." >
+          <field_group group_ref="ICE"/>
+	  <field_group group_ref="ICE_cat"/>
+        </file>
+
+	<file id="file35" name_suffix="_icemod_scalar" description="scalar variables" >
+          <field_group group_ref="ICE_globalbudget"/>
+        </file>
+
+	<file id="file36" name_suffix="_icebudget" description="ice variables" enabled=".true." >
+          <field_group group_ref="ICE_budget"/>
+        </file>
+      </file_group>
+      -->
+
+      <!-- 1-yearly files -->
+      <file_group id="1y" output_freq="1y" output_level="10" enabled=".TRUE.">
+        <file id="file37" name_suffix="_icemod" description="ice variables" enabled=".true." >
+          <field_group group_ref="ICE"/>
+          <field_group group_ref="ICE_cat"/>
+        </file>
+	<file id="file38" name_suffix="_icebudget" description="ice variables" enabled=".true." >
+          <field_group group_ref="ICE_budget"/>
+        </file>
+      </file_group>
+
+   </file_definition>

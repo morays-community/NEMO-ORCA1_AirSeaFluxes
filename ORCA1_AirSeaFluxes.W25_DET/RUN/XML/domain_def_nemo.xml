@@ -14,6 +14,35 @@
     <zoom_domain ibegin="139" jbegin="119" ni="1" nj="1"/>
   </domain>
 
+  <!-- clem -->      
+  <!-- for moorings (xios-trunk r1676) -->
+  <domain_group prec="8">
+    <domain dim_i_name="site" id="domain_cfsites" lat_name="latitude" lon_name="longitude" prec="8" type="unstructured">
+      <generate_rectilinear_domain />
+      <interpolate_domain mode="compute" order="1" renormalize="true" write_weight="true" detect_missing_value="true" />
+    </domain>
+  </domain_group>
+  <!--   moorings or sections or zooms (xios2.5)  -->
+  <domain id="storfT" domain_ref="grid_T" >
+    <zoom_domain ibegin="119" jbegin="58" ni="33" nj="43"/>
+  </domain>
+  <domain id="storfU" domain_ref="grid_U" >
+    <zoom_domain ibegin="119" jbegin="58" ni="33" nj="43"/>
+  </domain>
+  <domain id="storfV" domain_ref="grid_V" >
+    <zoom_domain ibegin="119" jbegin="58" ni="33" nj="43"/>
+  </domain>
+  <domain id="storfW" domain_ref="grid_W" >
+    <zoom_domain ibegin="119" jbegin="58" ni="33" nj="43"/>
+  </domain>
+  <domain id="NyAlesund" domain_ref="grid_T" >
+    <zoom_domain ibegin="79" jbegin="82" ni="1" nj="1"/>
+  </domain>
+  <domain id="moorT" domain_ref="grid_T" >
+    <zoom_domain ibegin="119" jbegin="58" ni="1" nj="1"/>
+  </domain>
+  <!-- clem -->      
+
 
   <!--   Eq section -->
   <domain id="EqT" domain_ref="grid_T" > <zoom_domain id="EqT"/> </domain>
