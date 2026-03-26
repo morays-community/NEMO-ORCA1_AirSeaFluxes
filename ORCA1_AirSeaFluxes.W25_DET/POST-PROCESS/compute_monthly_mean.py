@@ -48,6 +48,11 @@ def main():
                 f"Requested {args.nb_year} years but dataset only contains {ntime} time steps."
             )
 
+        if args.nb_year > 0:
+            ds = ds.isel(time_counter=slice(-args.nb_year*12, None))  # dernières années
+        elif args.nb_year < 0:
+            ds = ds.isel(time_counter=slice(0, -args.nb_year*12))    # premières années
+
         ds = ds.isel(time_counter=slice(-args.nb_year*12, None))
         print(f"Averaging over last {args.nb_year} years")
     else:
