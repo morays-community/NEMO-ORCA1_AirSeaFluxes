@@ -22,7 +22,7 @@ Purpose of this experiment is to compute the air-sea heat and momentum fluxes of
 
 - Code Compilation manager : none, use standard `makenemo` script
 
-- [Guidelines](https://morays-doc.readthedocs.io/en/latest/nemo.orca1.html) to deploy base configuration with inputs and forcing files
+- [Guidelines](https://morays-doc.readthedocs.io/en/latest/nemo.orca1.html) to deploy base (unpatched) configuration with inputs and forcing files
 
 ### Python
 
