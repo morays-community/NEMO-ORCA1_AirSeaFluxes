@@ -18,10 +18,11 @@ Purpose of this experiment is to compute the air-sea heat and momentum fluxes of
 
 ### Compilation
 
-- NEMO version : [v5.0.1](https://forge.nemo-ocean.eu/nemo/nemo/-/releases/5.0.1) patched with [morays](https://github.com/morays-community/Patches-NEMO/tree/main/NEMO_v5.0.1) and local `CONFIG/my_src` sources.
+- NEMO version : [v5.0.1](https://forge.nemo-ocean.eu/nemo/nemo/-/releases/5.0.1) patched with [morays](https://github.com/morays-community/Patches-NEMO/tree/main/NEMO_v5.0.1) and local `CONFIG/my_src` sources
 
 - Code Compilation manager : none, use standard `makenemo` script
 
+- [Guidelines](https://morays-doc.readthedocs.io/en/latest/nemo.orca1.html) to deploy base configuration with inputs and forcing files
 
 ### Python
 
