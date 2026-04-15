@@ -278,15 +278,15 @@
    !___________!_________________________!___________________!___________!_____________!________!___________!______________________________________!__________!_______________!
    !           !  file name              ! frequency (hours) ! variable  ! time interp.!  clim  ! 'yearly'/ !       weights filename               ! rotation ! land/sea mask !
    !           !                         !  (if <0  months)  !   name    !   (logical) !  (T/F) ! 'monthly' !                                      ! pairing  !    filename   !
-   sn_wndi     = 'u_10.15JUNE2009_fill'       ,    6.        , 'U_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bicubic_noc.nc'  , 'Uwnd'   , ''
-   sn_wndj     = 'v_10.15JUNE2009_fill'       ,    6.        , 'V_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bicubic_noc.nc'  , 'Vwnd'   , ''
-   sn_qsr      = 'ncar_rad.15JUNE2009_fill'   ,   24.        , 'SWDN_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_qlw      = 'ncar_rad.15JUNE2009_fill'   ,   24.        , 'LWDN_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_tair     = 't_10.15JUNE2009_fill'       ,    6.        , 'T_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_humi     = 'q_10.15JUNE2009_fill'       ,    6.        , 'Q_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_prec     = 'ncar_precip.15JUNE2009_fill',   -1.        , 'PRC_MOD1',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_snow     = 'ncar_precip.15JUNE2009_fill',   -1.        , 'SNOW'    ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
-   sn_slp      = 'slp.15JUNE2009_fill'        ,    6.        , 'SLP'     ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_wndi     = 'u_10.15JUNE2009'       ,    6.        , 'U_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bicubic_noc.nc'  , 'Uwnd'   , ''
+   sn_wndj     = 'v_10.15JUNE2009'       ,    6.        , 'V_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bicubic_noc.nc'  , 'Vwnd'   , ''
+   sn_qsr      = 'ncar_rad.15JUNE2009'   ,   24.        , 'SWDN_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_qlw      = 'ncar_rad.15JUNE2009'   ,   24.        , 'LWDN_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_tair     = 't_10.15JUNE2009'       ,    6.        , 'T_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_humi     = 'q_10.15JUNE2009'       ,    6.        , 'Q_10_MOD',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_prec     = 'ncar_precip.15JUNE2009',   -1.        , 'PRC_MOD1',   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_snow     = 'ncar_precip.15JUNE2009',   -1.        , 'SNOW'    ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
+   sn_slp      = 'slp.15JUNE2009'        ,    6.        , 'SLP'     ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
    sn_uoatm    = 'NOT USED'                   ,    6.        , 'UOATM'   ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , 'Uoceatm', ''
    sn_voatm    = 'NOT USED'                   ,    6.        , 'VOATM'   ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , 'Voceatm', ''
    sn_cc       = 'NOT USED'                   ,   24.        , 'CC'      ,   .false.   , .true. , 'yearly'  , 'weights_core_orca2_bilinear_noc.nc' , ''       , ''
@@ -1542,121 +1542,41 @@
    ln_timing   = .false.          !  timing by routine write out in timing.output file
    ln_diacfl   = .false.          !  CFL diagnostics write out in cfl_diagnostics.ascii
 /
-!------------------------------------------------------------------------------
-&namsto         !   Generic parameters
-!------------------------------------------------------------------------------
-   ln_sto_sppt = .false.   ! activate/deactivate SPPT stochastic scheme
-   ln_sto_skeb = .false.   ! activate/deactivate SKEB stochastic scheme
-   ln_sto_eos  = .false.   ! activate/deactivate stochastic equation of state
-   ln_sto_spp  = .false.   ! activate/deactivate stochastic perturbation of parameters (SPP)
-   ln_sto_lug  = .false.    ! activate/deactivate location uncertainty by grid perturbations
-!  ln_rststo   = .true.    ! start random processes from mean parameter (F) or from restart file (T)
-   ln_rststo   = .false.   ! start random processes from mean parameter (F) or from restart file (T)
+!-----------------------------------------------------------------------
+&namsto        ! Stochastic parametrization of EOS                      (default: OFF)
+!-----------------------------------------------------------------------
+   ln_sto_ldf  = .false.   ! stochastic lateral diffusion
+   rn_ldf_std  =  0.1      ! lateral diffusion standard deviation (in percent)
+   rn_ldf_tcor =  1440.    ! lateral diffusion correlation timescale (in timesteps)
+   ln_sto_hpg  = .false.   ! stochastic pressure gradient
+   rn_hpg_std  =  0.1      ! density gradient standard deviation (in percent)
+   rn_hpg_tcor =  1440.    ! density gradient correlation timescale (in timesteps)
+   ln_sto_pstar  = .false. ! stochastic ice strength
+   rn_pstar_std  =  0.1    ! ice strength standard deviation (in percent)
+   rn_pstar_tcor =  1440.  ! ice strength correlation timescale (in timesteps)
+   nn_pstar_ord  =  1      ! order of autoregressive processes
+   nn_pstar_flt  =  0      ! passes of Laplacian filter
+   ln_sto_trd  = .false.   ! stochastic model trend
+   rn_trd_std  =  0.1      ! trend standard deviation (in percent)
+   rn_trd_tcor =  1440.    ! trend correlation timescale (in timesteps)
+   ln_sto_eos  = .false.   ! stochastic equation of state
+   nn_sto_eos  = 1         ! number of independent random walks
+   rn_eos_stdxy = 1.4       ! random walk horz. standard deviation (in grid points)
+   rn_eos_stdz = 0.7       ! random walk vert. standard deviation (in grid points)
+   rn_eos_tcor = 1440.     ! random walk time correlation (in timesteps)
+   nn_eos_ord  = 1         ! order of autoregressive processes
+   nn_eos_flt  = 0         ! passes of Laplacian filter
+   rn_eos_lim  = 2.0       ! limitation factor (default = 3.0)
+   ln_sto_trc  = .false.   ! stochastic tracer dynamics
+   nn_sto_trc  = 1         ! number of independent random walks
+   rn_trc_stdxy = 1.4      ! random walk horz. standard deviation (in grid points)
+   rn_trc_stdz = 0.7       ! random walk vert. standard deviation (in grid points)
+   rn_trc_tcor = 1440.     ! random walk time correlation (in timesteps)
+   nn_trc_ord  = 1         ! order of autoregressive processes
+   nn_trc_flt  = 0         ! passes of Laplacian filter
+   rn_trc_lim  = 3.0       ! limitation factor (default = 3.0)
+   ln_rststo   = .false.   ! start from mean parameter (F) or from restart file (T)
    ln_rstseed  = .true.    ! read seed of RNG from restart file
-   cn_storst_in  = "ORCA2_00000040_restart_sto.nc" ! input restart file for random processes
-   cn_storst_out = "restart_sto.nc" ! output restart file for random processes
-   ln_rng_test = .false.   ! perform test of random number generators
-/
-!------------------------------------------------------------------------------
-&namens         !   Ensemble parameters
-!------------------------------------------------------------------------------
-   ln_ensemble = .false.   ! perform ensemble simulation (T/F)
-   ln_ens_rst_in = .false. ! use ensemble (T) or single (F) input restart file
-   nn_ens_size = 2         ! ensemble size
-   nn_ens_start = 1        ! index of the first ensemble member
-   ln_ens_diag = .false.   ! ensemble online diagnostic
-/
-!------------------------------------------------------------------------------
-&namsto_sppt    !   SPPT stochastic scheme
-!------------------------------------------------------------------------------
-   ! Global switches activating SPPT schemes
-   ln_sppt_tra = .false.      ! apply SPPT on tracers
-   ln_sppt_dyn = .false.      ! apply SPPT on momentum
-   ln_sppt_ice = .false.      ! apply SPPT on ice
-   ln_sppt_tau = .true.       ! apply SPPT on wind stress
-   !
-   ! SPPT Logical switches for individual tendencies
-   ln_sppt_traldf   = .true.  ! Switch for lateral diffusion
-   ln_sppt_trazdf   = .true.  ! Switch for vertical diffusion
-   ln_sppt_trazdfp  = .true.  ! Switch for pure vertical diffusion
-   ln_sppt_traevd   = .true.  ! Switch for enhanced vertical diffusion
-   ln_sppt_trabbc   = .true.  ! Switch for bottom boundary condition
-   ln_sppt_trabbl   = .true.  ! Switch for bottom boundary layer
-   ln_sppt_tranpc   = .true.  ! Switch for non-penetrative convection
-   ln_sppt_tradmp   = .true.  ! Switch for tracer damping
-   ln_sppt_traqsr   = .true.  ! Switch for solar radiation
-   ln_sppt_transr   = .true.  ! Switch for non-solar radiation / freshwater flux
-   !
-   ln_sppt_dynldf   = .true.  ! Switch for lateral viscosity
-   ln_sppt_dynzdf   = .true.  ! Switch for vertical viscosity
-   ln_sppt_dynbfr   = .true.  ! Switch for bottom friction
-   !
-   ln_sppt_icehdf   = .true.  ! Switch for sea-ice diffusivity
-   ln_sppt_icelat   = .true.  ! Switch for sea-ice lateral accretion
-   ln_sppt_icezdf   = .true.  ! Switch for sea-ice vertical thermodyn.
-   !
-   ! SPPT Options (with default values)
-   rn_sppt_stdev = 0.01       ! Standard deviation of the white noise
-   rn_uv_infl = 1.            ! Inflation coefficient for SPPT on DYN
-   rn_ice_infl = 1.           ! Inflation coefficient for SPPT on ICE
-   ln_sppt_bound = .false.    ! Flag for bounding perturbations
-   rn_sppt_bound = 3.         ! Bound for perturbations
-   !
-   ln_sppt_taumap = .false.   ! Use map of decorr. time scale
-   rn_sppt_tau = 30.          ! If ln_sppt_taumap FALSE, use this constant (in days)
-   sppt_filter_pass = 10      ! Number of filter passes to correlate in space
-   ln_distcoast = .false.     ! Smoothing of perturbation close to coast
-   rn_distcoast = 10000.      ! Spatial scale of the smoothing near coasts (m)
-   !
-   nn_sppt_freq = 1           ! Frequency of application of SPPT (in timesteps)
-   sppt_step = 1              ! SPPT step (0: beginning; 1: before ZVD; 2: after ZVD)
-   ln_sppt_glocon = .false.   ! Apply global conservation constraints
-   nn_vwei = 0                ! Type of vertical weight (0/1/2)
-/
-!------------------------------------------------------------------------------
-&namsto_skeb    !   SKEB stochastic scheme
-!------------------------------------------------------------------------------
-   ln_skeb_num = .true.
-   ln_skeb_con = .true.
-   ln_skeb_eke = .false.
-   nn_skeb_freq = 1
-   rn_skeb = 0.4
-   rn_kh   = 1.
-   rn_kc   = 1.
-   rn_skeb_tau   = 5.
-   rn_skeb_stdev = 0.001
-   skeb_filter_pass = 10
-   rn_beta_num = 1.
-   rn_beta_con = 1.
-   rn_beta_eke = 1.
-!  sn_uc  =
-!  sn_vc  =
-!  cn_dir =
-/
-!------------------------------------------------------------------------------
-&namsto_eos     !   Stochastic equation of state
-!------------------------------------------------------------------------------
-   nn_sto_eos = 6                ! number of independent random walks
-   rn_eos_stdxy = 2.0            ! random walk horz. standard deviation (in grid points)
-   rn_eos_stdz  = 0.5            ! random walk vert. standard deviation (in grid points)
-   rn_eos_tcor  = 20.0           ! random walk time correlation (in timesteps)
-   nn_eos_ord  = 2               ! order of autoregressive processes
-   nn_eos_flt  = 3               ! passes of Laplacian filter
-   rn_eos_lim  = 2.0             ! limitation factor (default = 3.0)
-/
-!------------------------------------------------------------------------------
-&namsto_lug     !   Location Uncertainties by Grid perturbations
-!------------------------------------------------------------------------------
-   ln_lug_brtrp = .false.        ! apply location uncertainty in barotropic advection
-   ln_lug_vrtcl = .true.         ! apply location uncertainty in gls vertical mixing
-   rn_lug_stdxy = 0.4            ! standard deviation (horizontal)
-   rn_lug_stdz  = 10.0           ! standard deviation (vertical)
-   rn_lug_tcor  = 30.0           ! correlation time scale (in days)
-   nn_lug_ord  = 2               ! order of autoregressive processes
-   nn_lug_flt  = 3               ! passes of Laplacian filter
-   rn_lug_lim  = 0.1             ! maximum grid deformation (default = 0.05)
-/
-!------------------------------------------------------------------------------
-&namsto_spp     !   Stochastic perturbation of parameters
-!------------------------------------------------------------------------------
+   cn_storst_in  = "restart_sto" !  suffix of stochastic parameter restart file (input)
+   cn_storst_out = "restart_sto" !  suffix of stochastic parameter restart file (output)
 /

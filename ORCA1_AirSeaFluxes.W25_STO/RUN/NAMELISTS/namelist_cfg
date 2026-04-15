@@ -34,9 +34,9 @@
 &namrun        !   parameters of the run
 !-----------------------------------------------------------------------
    nn_no       =       0       !  job number (no more used...)
-   cn_exp      =  "ORCA1_W25_STO"  !  experience name
+   cn_exp      =  "ORCA1_W25_STO"      !  experience name
    nn_it000    =    1          !  first time step
-   nn_itend    =  350400       !  last  time step (std 5475)
+   nn_itend    =   350400      !  last  time step (std 5475)
    nn_date0    =  20000101 !  date at nit_0000 (format yyyymmdd) used if ln_rstart=F or (ln_rstart=T and nn_rstctl=0 or 1)
    ln_rstart   =  .false.  !  start from rest (F) or from a restart file (T)
    nn_rstctl   =    0      !  restart control ==> activated only if ln_rstart=T
@@ -64,7 +64,7 @@
 !-----------------------------------------------------------------------
    ln_read_cfg = .true.    !  (=T) read the domain configuration file
       !                    !  (=F) user defined configuration  ==>>>  see usrdef(_...) modules
-      cn_domcfg = "eORCA1.4.2_ModifStraits_domain_cfg"    ! domain configuration filename
+      cn_domcfg = "domain_cfg"    ! domain configuration filename
       !
 /
 !-----------------------------------------------------------------------
@@ -145,15 +145,15 @@
    !___________!______________________________!___________________!___________!______________!__________!___________!______________________!__________!_______________!
    !           !             file name        ! frequency (hours) ! variable  ! time interp. !  clim    ! 'yearly'/ !  weights filename    ! rotation ! land/sea mask !
    !           !                              !  (if <0  months)  !   name    !   (logical)  !  (T/F)   ! 'monthly' !                      ! pairing  !    filename   !
-   sn_wndi     = 'u_10.15JUNE2009_fill'       ,         6.        , 'U_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bicubic.nc'  , 'Uwnd'   , ''
-   sn_wndj     = 'v_10.15JUNE2009_fill'       ,         6.        , 'V_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bicubic.nc'  , 'Vwnd'   , ''
-   sn_qsr      = 'ncar_rad.15JUNE2009_fill'   ,        24.        , 'SWDN_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_qlw      = 'ncar_rad.15JUNE2009_fill'   ,        24.        , 'LWDN_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_tair     = 't_10.15JUNE2009_fill'       ,         6.        , 'T_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_humi     = 'q_10.15JUNE2009_fill'       ,         6.        , 'Q_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_prec     = 'ncar_precip.15JUNE2009_fill',        -1.        , 'PRC_MOD' ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_snow     = 'ncar_precip.15JUNE2009_fill',        -1.        , 'SNOW'    ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
-   sn_slp      = 'slp.15JUNE2009_fill'        ,         6.        , 'SLP'     ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_wndi     = 'u_10.15JUNE2009'       ,         6.        , 'U_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bicubic.nc'  , 'Uwnd'   , ''
+   sn_wndj     = 'v_10.15JUNE2009'       ,         6.        , 'V_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bicubic.nc'  , 'Vwnd'   , ''
+   sn_qsr      = 'ncar_rad.15JUNE2009'   ,        24.        , 'SWDN_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_qlw      = 'ncar_rad.15JUNE2009'   ,        24.        , 'LWDN_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_tair     = 't_10.15JUNE2009'       ,         6.        , 'T_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_humi     = 'q_10.15JUNE2009'       ,         6.        , 'Q_10_MOD',   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_prec     = 'ncar_precip.15JUNE2009',        -1.        , 'PRC_MOD' ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_snow     = 'ncar_precip.15JUNE2009',        -1.        , 'SNOW'    ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
+   sn_slp      = 'slp.15JUNE2009'        ,         6.        , 'SLP'     ,   .false.    ,  .true. , 'yearly'  , 'weights_coreII_2_eORCA1.4.2_bilinear.nc' , ''       , ''
    !
 /
 !-----------------------------------------------------------------------
@@ -167,7 +167,7 @@
    !___________!_________________________!___________________!___________!_____________!________!___________!__________________!__________!_______________!
    !           !  file name              ! frequency (hours) ! variable  ! time interp.!  clim  ! 'yearly'/ ! weights filename ! rotation ! land/sea mask !
    !           !                         !  (if <0  months)  !   name    !   (logical) !  (T/F) ! 'monthly' !                  ! pairing  !    filename   !
-  sn_chl      ='merged_ESACCI_BIOMER4V1R1_CHL_REG05',  -1  , 'CHLA' , .true. , .true. , 'yearly' , 'weights_reg05_2_eORCA1.4.2_bilinear.nc' , '' , ''
+  sn_chl      ='merged_ESACCI_BIOMER4V1R1_CHL_REG05',  -1  , 'CHLA' , .true. , .true. , 'yearly' , 'weights_reg05_bilinear.nc' , '' , ''
 /
 !-----------------------------------------------------------------------
 &namsbc_ssr    !   surface boundary condition : sea surface restoring   (ln_ssr =T)
@@ -182,7 +182,7 @@
    !___________!_________________________!___________________!___________!_____________!________!___________!__________________!__________!_______________!
    !           !  file name              ! frequency (hours) ! variable  ! time interp.!  clim  ! 'yearly'/ ! weights filename ! rotation ! land/sea mask !
    !           !                         !  (if <0  months)  !   name    !   (logical) !  (T/F) ! 'monthly' !                  ! pairing  !    filename   !
-   sn_sss      = 'sss_absolute_salinity', -1. , 'presalt',    .true. ,         .true. , 'yearly' ,    '' ,      ''
+   sn_sss      = 'sss_climatology_for_restoring', -1. , 'presalt',    .true. ,         .true. , 'yearly' ,    '' ,      ''
 /
 !-----------------------------------------------------------------------
 &namsbc_rnf    !   runoffs                                              (ln_rnf =T)
@@ -196,9 +196,9 @@
    !___________!_____________!___________________!___________!_____________!_________!___________!__________!__________!_______________!
    !           !  file name  ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
    !           !             !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename      !
-   sn_rnf      = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter', -1 , 'sorunoff', .true.  , .true. , 'yearly'  , '' , '' , ''
-   sn_i_rnf    = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter', -1 , 'Icb_flux', .true.  , .true. , 'yearly'  , '' , '' , ''
-   sn_cnf      = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter',  0 , 'socoefr' , .false. , .true. , 'yearly'  , '' , '' , ''
+   sn_rnf      = 'runoff-icb_DaiTrenberth_Depoorter', -1 , 'sorunoff', .true.  , .true. , 'yearly'  , '' , '' , ''
+   sn_i_rnf    = 'runoff-icb_DaiTrenberth_Depoorter', -1 , 'Icb_flux', .true.  , .true. , 'yearly'  , '' , '' , ''
+   sn_cnf      = 'runoff-icb_DaiTrenberth_Depoorter',  0 , 'socoefr' , .false. , .true. , 'yearly'  , '' , '' , ''
 /
 !-----------------------------------------------------------------------
 &namisf       !  Top boundary layer (ISF)                               (default: OFF)
@@ -220,10 +220,10 @@
          !___________!_____________!___________________!___________!_____________!_________!___________!__________!__________!_______________!
          !           !  file name  ! frequency (hours) ! variable  ! time interp.!  clim   ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
          !           !             !  (if <0  months)  !   name    !  (logical)  !  (T/F)  ! 'monthly' ! filename ! pairing  ! filename      !
-         sn_isfpar_zmax = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter', -12 ,'sodepmax_isf' , .false. , .true. , 'yearly' , '' , ''
-         sn_isfpar_zmin = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter', -12 ,'sodepmin_isf' , .false. , .true. , 'yearly' , '' , ''
+         sn_isfpar_zmax = 'runoff-icb_DaiTrenberth_Depoorter', -12 ,'sodepmax_isf' , .false. , .true. , 'yearly' , '' , ''
+         sn_isfpar_zmin = 'runoff-icb_DaiTrenberth_Depoorter', -12 ,'sodepmin_isf' , .false. , .true. , 'yearly' , '' , ''
          !* 'spe' and 'oasis' case
-         sn_isfpar_fwf  = 'eORCA1.4.2_runoff-icb_DaiTrenberth_Depoorter', -12 ,'sornfisf'     , .false. , .true. , 'yearly' , '' , ''
+         sn_isfpar_fwf  = 'runoff-icb_DaiTrenberth_Depoorter', -12 ,'sornfisf'     , .false. , .true. , 'yearly' , '' , ''
 /
 !!======================================================================
 !!               ***  Lateral boundary condition  ***                 !!
@@ -278,7 +278,7 @@
    !___________!____________________!___________________!___________!_____________!________!___________!__________________!__________!_______________!
    !           !  file name         ! frequency (hours) ! variable  ! time interp.!  clim  ! 'yearly'/ ! weights filename ! rotation ! land/sea mask !
    !           !                    !  (if <0  months)  !   name    !   (logical) !  (T/F) ! 'monthly' !                  ! pairing  !    filename   !
-   sn_qgh      ='Lucazeau2_ghflux.nc',        -12.       , 'gh_flux' ,   .false.   , .true. , 'yearly' , 'weights_Lucazeau1_2_eORCA1.4.2_bilinear.nc' , '' , ''
+   sn_qgh      ='geothermal_heat_flux.nc',        -12.       , 'gh_flux' ,   .false.   , .true. , 'yearly' , 'weights_ghflux_bilinear.nc' , '' , ''
 /
 !-----------------------------------------------------------------------
 &nambbl        !   bottom boundary layer scheme                         (default: OFF)
@@ -463,12 +463,12 @@
    !___________!_________________________!___________________!___________!_____________!________!___________!__________________!__________!_______________!
    !           !  file name              ! frequency (hours) ! variable  ! time interp.!  clim  ! 'yearly'/ ! weights filename ! rotation ! land/sea mask !
    !           !                         !  (if <0  months)  !   name    !   (logical) !  (T/F) ! 'monthly' !                  ! pairing  !    filename   !
-   sn_mpb      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'power_bot'   , .false.  , .true. , 'yearly' , '' , ''  , ''
-   sn_mpc      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'power_cri'   , .false.  , .true. , 'yearly' , '' , ''  , ''
-   sn_mpn      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'power_nsq'   , .false.  , .true. , 'yearly' , '' , ''  , ''
-   sn_mps      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'power_sho'   , .false.  , .true. , 'yearly' , '' , ''  , ''
-   sn_dsb      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'scale_bot'   , .false.  , .true. , 'yearly' , '' , ''  , ''
-   sn_dsc      = 'zdfiwm_forcing_orca1.nc'      , -12      , 'scale_cri'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_mpb      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'power_bot'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_mpc      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'power_cri'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_mpn      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'power_nsq'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_mps      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'power_sho'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_dsb      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'scale_bot'   , .false.  , .true. , 'yearly' , '' , ''  , ''
+   sn_dsc      = 'zdfiwm_forcing_TRA.nc'      , -12      , 'scale_cri'   , .false.  , .true. , 'yearly' , '' , ''  , ''
 /
 !!======================================================================
 !!                  ***  Diagnostics namelists  ***                   !!
@@ -524,10 +524,4 @@
 !!clem   sn_cfctl%l_runstat = <ctl>    ! switches and which areas produce reports with the proc integer settings.
    ln_timing   = .true.    !  timing by routine write out in timing.output file
    ln_diacfl   = .false.    !  CFL diagnostics write out in cfl_diagnostics.ascii
-/
-!-----------------------------------------------------------------------
-&namsto        !   general parameters for stochastic parameterization
-!-----------------------------------------------------------------------
-   ln_rststo   = .false.    ! start from mean parameter (F) or from restart file (T)
-   ln_rstseed  = .false.    ! read seed of RNG from restart file
 /
